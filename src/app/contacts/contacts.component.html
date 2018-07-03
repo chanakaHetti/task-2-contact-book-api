@@ -1,0 +1,28 @@
+
+<div class="contact-container">
+  <ul>
+    <li *ngFor="let contact of contacts | paginate: { itemsPerPage: 10, currentPage: p }">
+      <h3>
+          <!-- {{contact.id}} <span>.</span> -->
+          <!-- <a href=""> -->
+            {{contact.name}}
+          <!-- </a> -->
+      </h3>
+      <p>
+          {{contact.number}}
+      </p>
+      <span class="float-right">
+          <button 
+            class="button button-view"
+            routerLink="/contact/detail/{{contact.id}}"
+          >View</button>
+          <button class="button button-edit">Edit</button>
+          <button class="button button-delete">Delete</button>
+      </span>
+    </li>
+  </ul>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
+
+<app-contact-detail [contact]="selectedContact"></app-contact-detail>
