@@ -2,12 +2,23 @@
     <div class="container">
         <ul>
             <li>
-              <a 
-                routerLink="/contacts"
-                routerLinkActive="active">Contact Book</a></li>
-            <li class="folat-right"><a href="#contact">Register</a></li>
-            <li class="folat-right"><a href="#about">Login</a></li>
-            <li class="folat-right"><a href="#about">Logout</a></li>
+                <a 
+                    routerLink="/contacts"
+                    routerLinkActive="active">Contact Book</a>
+            </li>
+            <li class="folat-right" *ngIf="!authService.isAuthenticated()">
+                <a 
+                    routerLink="/signup"
+                    routerLinkActive="active">Register</a>
+            </li>
+            <li class="folat-right" *ngIf="!authService.isAuthenticated()">
+                <a 
+                    routerLink="/signin"
+                    routerLinkActive="active">Login</a>
+            </li>
+            <li class="folat-right" *ngIf="authService.isAuthenticated()">
+                <a (click)="onLogout()">Logout</a>
+            </li>
         </ul>
     </div>
 </div>

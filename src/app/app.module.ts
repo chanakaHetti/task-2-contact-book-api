@@ -16,6 +16,11 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
 import { AppRoutingModule } from './/app-routing.module';
 import { ContactEditComponent } from './contact-edit/contact-edit.component';
 import { ContactAddComponent } from './contact-add/contact-add.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { ContactService } from './contact.service';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,9 @@ import { ContactAddComponent } from './contact-add/contact-add.component';
     HeaderComponent,
     ContactDetailComponent,
     ContactEditComponent,
-    ContactAddComponent
+    ContactAddComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +44,7 @@ import { ContactAddComponent } from './contact-add/contact-add.component';
     NgxPaginationModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ContactService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
