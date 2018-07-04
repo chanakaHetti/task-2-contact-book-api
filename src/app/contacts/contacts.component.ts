@@ -25,4 +25,10 @@ export class ContactsComponent implements OnInit {
       .subscribe(contacts => this.contacts = contacts);
   }
 
+  deleteContact(contact: Contact): void {
+    this.contacts = this.contacts.filter(h => h !== contact);
+    this.contactService.deleteContact(contact)
+      .subscribe();
+  }
+
 }

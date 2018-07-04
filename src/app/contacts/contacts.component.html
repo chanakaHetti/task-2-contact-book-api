@@ -1,28 +1,42 @@
+<div class="container">
+    <div class="contact-header">
+        <div class="breadcum">
+            <h2>Welcome to Contacts Book API</h2>
+            <button 
+                class="button button-edit"
+                routerLink="/contact/add">Add New Contact</button>
+        </div>
+    </div>
 
-<div class="contact-container">
-  <ul>
-    <li *ngFor="let contact of contacts | paginate: { itemsPerPage: 10, currentPage: p }">
-      <h3>
-          <!-- {{contact.id}} <span>.</span> -->
-          <!-- <a href=""> -->
-            {{contact.name}}
-          <!-- </a> -->
-      </h3>
-      <p>
-          {{contact.number}}
-      </p>
-      <span class="float-right">
-          <button 
-            class="button button-view"
-            routerLink="/contact/detail/{{contact.id}}"
-          >View</button>
-          <button class="button button-edit">Edit</button>
-          <button class="button button-delete">Delete</button>
-      </span>
-    </li>
-  </ul>
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <div class="contact-body">
+        <div>
+            <ul>
+                <li *ngFor="let contact of contacts | paginate: { itemsPerPage: 3, currentPage: p }">
+                    <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/17241-200.png" alt="">
+                    <h3>
+                        {{contact.name}}
+                    </h3>
+                    <p>
+                        {{contact.number}}
+                    </p>
+                    <span class="float-right">
+                        <button 
+                            class="button button-delete"
+                            (click)="deleteContact(contact)">Delete</button>
+                          <button 
+                            class="button button-edit"
+                            routerLink="/contact/edit/{{contact.id}}">Edit</button>
+                        <button 
+                            class="button button-view"
+                            routerLink="/contact/detail/{{contact.id}}">View</button>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="contact-footer">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
 </div>
 
-
-<app-contact-detail [contact]="selectedContact"></app-contact-detail>

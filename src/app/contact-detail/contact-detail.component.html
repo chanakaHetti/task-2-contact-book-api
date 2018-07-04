@@ -1,15 +1,43 @@
-<div *ngIf="contact">
-  <h2>{{contact.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{contact.id}}</div>
-  <div>
-    <label>Name:
-      <input [(ngModel)]="contact.name" placeholder="name">
-    </label>
-    <label>Email:
-      <input [(ngModel)]="contact.email" placeholder="email">
-    </label>
-    <label>Telephone number:
-      <input [(ngModel)]="contact.number" placeholder="number">
-    </label>
-  </div>
+<div class="container">
+    <div class="contact-header">
+        <div class="breadcum">
+            <h2>Contact Details : {{ contact.name }}</h2>
+            <button 
+                class="button button-delete"
+                (click)="goBack()">Back</button>
+        </div>
+    </div>
+    
+    <div *ngIf="contact" class="contact-body">
+        <div>
+            <label>Name:
+                <input 
+                    type="text" 
+                    [(ngModel)]="contact.name" 
+                    placeholder="name" 
+                    id="name"
+                    disabled>
+            </label>
+            <br>
+            <label>Email:
+                <input 
+                    type="text" 
+                    [(ngModel)]="contact.email" 
+                    placeholder="email"
+                    id="email"
+                    disabled>
+            </label>
+            <br>
+            <label>Telephone number:
+                <input 
+                    type="text" 
+                    [(ngModel)]="contact.number" 
+                    placeholder="number" 
+                    id="number"
+                    disabled>
+            </label>
+        </div>
+    </div>
 </div>
+
+

@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="contact-header">
+        <div class="breadcum">
+            <h2>Edit {{contact.name}} Details</h2>
+            <button 
+                class="button button-delete"
+                (click)="goBack()">Back</button>
+        </div>
+    </div>
+    
+    <div *ngIf="contact" class="contact-body">
+        <div>
+            <!-- <form> -->
+                <label for="name">Name :
+                    <input 
+                        type="text" 
+                        [(ngModel)]="contact.name"
+                        placeholder="name" 
+                        id="name">
+                </label>
+                <br>
+                <label for="email">Email :
+                    <input 
+                        type="text"
+                        [(ngModel)]="contact.email"
+                        placeholder="email"
+                        id="email">
+                </label>
+                <br>
+                <label for="number">Telephone number :
+                    <input 
+                        type="text" 
+                        [(ngModel)]="contact.number"
+                        placeholder="number" 
+                        id="number">
+                </label>
+                <br>
+                <button 
+                    type="button" 
+                    class="button button-view button-form"
+                    (click)="save()">Save</button>
+                <button 
+                    type="button" 
+                    class="button button-delete button-form"
+                    (click)="goBack()">Cancel</button>
+
+            <!-- </form> -->
+        </div>
+    </div>
+</div>
+
+

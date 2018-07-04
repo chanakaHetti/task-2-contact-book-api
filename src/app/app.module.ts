@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http'; 
 
@@ -14,13 +14,17 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { HeaderComponent } from './header/header.component';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { ContactEditComponent } from './contact-edit/contact-edit.component';
+import { ContactAddComponent } from './contact-add/contact-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactsComponent,
     HeaderComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
+    ContactEditComponent,
+    ContactAddComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,8 @@ import { AppRoutingModule } from './/app-routing.module';
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
-    NgxPaginationModule
+    NgxPaginationModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

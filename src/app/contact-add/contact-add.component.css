@@ -32,9 +32,23 @@ button.button-delete:hover {
     background-color: #f44336;
     color: white;
 }
+button.button-view {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+}
+button.button-view:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+button.button-form { 
+    /* margin: 5px; */
+    margin: 5px 28px 5px -17px;
+}
+
 div.contact-body {
     border: 1px solid;
-    padding: 35px;
+    padding: 35px 35px 70px 35px;
     margin-top: 40px;
 }
 input[type=text] {

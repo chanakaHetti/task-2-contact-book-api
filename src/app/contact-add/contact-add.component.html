@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="contact-header">
+        <div class="breadcum">
+            <h2>Add new Contact</h2>
+            <button 
+                class="button button-delete"
+                (click)="goBack()">Back</button>
+        </div>
+    </div>
+    
+    <div class="contact-body">
+        <div>
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                <label for="name">Name :
+                    <input 
+                        type="text" 
+                        placeholder="name" 
+                        id="name"
+                        formControlName="name">
+                </label>
+                <br>
+                <label for="email">Email :
+                    <input 
+                        type="text"
+                        placeholder="email"
+                        id="email"
+                        formControlName="email">
+                </label>
+                <br>
+                <label for="number">Telephone number :
+                    <input 
+                        type="text" 
+                        placeholder="number" 
+                        id="number"
+                        formControlName="number">
+                </label>
+                <br>
+                <button 
+                    type="submit"
+                    class="button button-view button-form">Add</button>
+                <button 
+                    type="button" 
+                    class="button button-delete button-form"
+                    (click)="goBack()">Cancel</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+

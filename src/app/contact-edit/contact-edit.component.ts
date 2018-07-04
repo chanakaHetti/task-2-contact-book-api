@@ -1,16 +1,16 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 import { Contact } from '../contact';
 import { ContactService } from '../contact.service';
 
 @Component({
-  selector: 'app-contact-detail',
-  templateUrl: './contact-detail.component.html',
-  styleUrls: ['./contact-detail.component.css']
+  selector: 'app-contact-edit',
+  templateUrl: './contact-edit.component.html',
+  styleUrls: ['./contact-edit.component.css']
 })
-export class ContactDetailComponent implements OnInit {
+export class ContactEditComponent implements OnInit {
   @Input() contact: Contact;
 
   constructor(
@@ -26,7 +26,12 @@ export class ContactDetailComponent implements OnInit {
   getContact(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.contactService.getContact(id)
-      .subscribe(contact => this.contact = contact)
+      .subscribe(contact => this.contact = contact);
+  }
+
+  save(): void {
+    this.contactService.updateContact(this.contact)
+      .subscribe(() => this.goBack());
   }
 
   goBack(): void {

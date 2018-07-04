@@ -12,6 +12,9 @@ import { CONTACTS } from './mock-contacts';
 })
 export class ContactService {
   private ajaxUrl = 'api/contacts'; // ajax url is array name from in-memory-data.service
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  }
 
   constructor( private http: HttpClient ) { }
 
@@ -26,6 +29,30 @@ export class ContactService {
   getContact(id: number): Observable<Contact> {
     return of(CONTACTS.find(contact => contact.id === id));
   } 
+
+  updateContact(contact: Contact): Observable<any> {
+    return this.http.put(this.ajaxUrl, contact, this.httpOptions)
+      .pipe(
+        catchError(this.handleError<any>('updateContacts'))
+      );
+  }
+
+  addContact(contact: Contact): Observable<any> {
+    return this.http.post(this.ajaxUrl, contact, this.httpOptions)
+      .pipe(
+        catchError(this.handleError<any>('updateContacts')),
+      );
+  }
+
+  deleteContact(contact: Contact | number): Observable<Contact> {
+    const id = typeof contact === 'number' ? contact: contact.id
+    const url = `${this.ajaxUrl}/${id}`;
+
+    return this.http.delete<Contact>(url, this.httpOptions)
+      .pipe(
+        catchError(this.handleError<Contact>('deleteContact'))
+      );
+  }
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
