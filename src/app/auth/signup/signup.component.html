@@ -10,7 +10,7 @@
     
     <div class="contact-body">
         <div>
-            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                 <label for="email">Email :
                     <input 
                         type="text"
@@ -24,7 +24,7 @@
                         type="text" 
                         placeholder="password" 
                         id="pwd"
-                        formControlName="pwd">
+                        formControlName="password">
                 </label>
                 <br>
                 <button 
