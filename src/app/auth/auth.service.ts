@@ -24,6 +24,17 @@ export class AuthService {
         return of(this.logStatus);
     }
 
+    signupUser(user: User): Observable<any>{
+        if(user.email != '' && user.password != null) {
+            this.logStatus = true;
+            this.getToken();
+        } else {
+            this.logStatus = false;
+        }
+        
+        return of(this.logStatus);
+    }
+
     getToken() {
         this.token = 'asd';
         return this.token;

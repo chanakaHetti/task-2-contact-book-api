@@ -12,7 +12,7 @@ import { AuthGuard } from './auth/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'contacts', pathMatch: 'full' },
-  { path: 'contacts', component: ContactsComponent, canActivate: [AuthGuard] },
+  { path: 'contacts', component: ContactsComponent },
   { path: 'contact/detail/:id', component: ContactDetailComponent, canActivate: [AuthGuard] },
   { path: 'contact/edit/:id', component: ContactEditComponent, canActivate: [AuthGuard] },
   { path: 'contact/add', component: ContactAddComponent, canActivate: [AuthGuard] },
